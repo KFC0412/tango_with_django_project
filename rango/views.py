@@ -13,5 +13,15 @@ def index(request):
     return render(request, 'rango/index.html', context=context_dict)
 
 def about(request):
-    return HttpResponse("Rango says here is the about page. <br> <a href='/rango/'>Index</a>")
+    return render(request, 'rango/about.html')
+
+def faq(request):
+    faq_list = [
+        {"question": "What is Django?", "answer": "Django is a high-level Python web framework that helps in app development."},
+    ]
+    # Construct a dictionary for the context to pass to the template
+    context_dict = {
+        'faq_list': faq_list,
+    }
+    return render(request, 'rango/faq.html', context=context_dict)
 # Create your views here.
