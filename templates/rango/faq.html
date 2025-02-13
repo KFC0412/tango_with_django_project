@@ -1,23 +1,27 @@
-<!DOCTYPE html>
-{% load staticfiles %} <!-- New line -->
-<html>
-    <head>
-        <title>FAQs</title>
-    </head>
-    <body>
-        <h1>Frequently Asked Questions</h1>   
-        <ul>
-            {% for faq in faq_list %}
-                <li>
-                    <strong>{{ faq.question }}</strong>
-                    <p>{{ faq.answer }}</p>
-                </li>
-            {% endfor %}
-        </ul>
-        <a href="/rango/">Index</a>
-        <div>
-            <img src="{% static 'images/faq.jpg' %}"
-                alt="Picture of FAQ" /> <!-- New line -->
-        </div>
-    </body>
-</html>
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    FAQ
+{% endblock %}
+
+{% block body_block %}
+    <h1>Frequently Asked Questions</h1>   
+    <ul>
+        {% for faq in faq_list %}
+            <li>
+                <strong>{{ faq.question }}</strong>
+                <p>{{ faq.answer }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/rango/">Index</a>
+    <div>
+        <img src="{% static 'images/faq.jpg' %}"
+            alt="Picture of FAQ" /> <!-- New line -->
+    </div>
+{% endblock %}
+
+
+
+
